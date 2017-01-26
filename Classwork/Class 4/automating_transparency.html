@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+  <head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.1/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <script>
+
+      var socket = io.connect("http://stream.wikimedia.org/rc");
+
+      socket.on("connect", function() {
+        socket.emit("subscribe", "en.wikipedia.org");
+      });
+
+      socket.on("change", function(change) {
+        $("ul").prepend("<li>" + change.title + "</li>");
+      });
+
+    </script>
+  </head>
+
+  <body>
+    <h1>English Wikipedia Edits !!!</h1>
+    <ul></ul>
+  </body>
+
+</html>
