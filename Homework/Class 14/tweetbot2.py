@@ -8,7 +8,7 @@ ACCESS_TOKEN_SECRET = 'welp'
 
 twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-search_term = 'make great again'
+search_term = 'make -america great again'
 search = twitter.search(q=search_term, count="100")
 tweets = search['statuses']
 
